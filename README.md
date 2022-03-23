@@ -116,6 +116,8 @@ B = imocker.import_module('B')
 
 ```
 
+**Note:** You can find more practical examples in the test files.
+
 ### API
 
 These are the functions provided by the `ImportMocker` class:
