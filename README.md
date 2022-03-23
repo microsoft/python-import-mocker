@@ -1,7 +1,7 @@
 # Python Import Mocker
 
-The Python Import Mocker provides an easy way to import a module and mock its
-dependencies in an isolated way.
+The [Python Import Mocker](https://pypi.org/project/import-mocker/) provides an
+easy way to import a module and mock its dependencies in an isolated way.
 The mocking of the dependencies will apply only to the current import and will
 not affect the global module namespace.
 
