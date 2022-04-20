@@ -178,7 +178,7 @@ when they are imported, all other imports will work normally.
 If `module_to_import` was previously imported, then it's reloaded so that its
 imported modules can be mocked again.
 
-### `import_modules(module_to_import: str)`
+### `import_modules(modules_to_import: List[str])`
 
 Uses the same logic of `import_module` but receives a list of module names to
 import and returns a list with the imported modules in the same order.
