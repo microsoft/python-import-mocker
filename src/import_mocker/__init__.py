@@ -51,7 +51,7 @@ class ImportMocker(object):
                     
         return imported_modules
 
-    def execute(self, function):
+    def execute(self, function, *args, **kwargs):
         """
         Executes a function inside a context that returns the mocked modules
         when they are imported, all other imports will work normally.
@@ -64,7 +64,7 @@ class ImportMocker(object):
         executing the function.
         """
         with mock.patch("builtins.__import__", side_effect=self._import_mock):
-            function()
+            function(*args, **kwargs)
 
     def get_mocks(self):
         """

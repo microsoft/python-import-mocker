@@ -13,3 +13,7 @@ def function_a_that_calls_c():
 def function_a_that_imports_and_calls_d():
     import module_d
     module_d.function_d()
+
+def function_a_that_imports_and_calls_e_(x,y,z):
+    import module_e
+    module_e.function_e(x+y+z)
