@@ -1,2 +1,2 @@
-def function_d(num=''):
-    print(f"function_d({num})from module_d was called!")
+def function_d():
+    print("function_d from module_d was called!")

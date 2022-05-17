@@ -126,13 +126,14 @@ def test_can_reset_all_mocks():
 
 def test_can_execute_code_on_dynamically_imported_mock():
     # Arrange
-    imocker = ImportMocker(["module_b", "module_c", "module_d"])
+    imocker = ImportMocker(["module_b", "module_c", "module_d", "module_e"])
     module_a = imocker.import_module("module_a")
 
     # Act
     module_a.function_a_that_calls_b()
     module_a.function_a_that_calls_c()
-    imocker.execute(lambda: module_a.function_a_that_imports_and_calls_d(1,2,z=3))
+    imocker.execute(lambda: module_a.function_a_that_imports_and_calls_d())
+    imocker.execute(lambda: module_a.function_a_that_imports_and_calls_e(1, 2, z=3))
 
     # Assert
     # Verify mocks are executed correctly
@@ -144,4 +145,8 @@ def test_can_execute_code_on_dynamically_imported_mock():
 
     # The module_d mock should have been imported dynamically when using execute()
     module_d = imocker.get_mock("module_d")
-    module_d.function_d.assert_called_once_with(1+2+3)
+    module_d.function_d.assert_called_once()
+
+    # The module_e mock should have been imported dynamically when using execute()
+    module_e = imocker.get_mock("module_e")
+    module_e.function_e.assert_called_once_with(1+2+3)
