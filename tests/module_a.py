@@ -10,6 +10,6 @@ def function_a_that_calls_b():
 def function_a_that_calls_c():
     module_c.function_c()
 
-def function_a_that_imports_and_calls_d():
+def function_a_that_imports_and_calls_d(x,y,z):
     import module_d
-    module_d.function_d()
+    module_d.function_d(x+y+z)
