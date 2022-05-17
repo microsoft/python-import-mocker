@@ -43,7 +43,7 @@ imocker.reset_mocks()
 This is useful when the code to execute will perform an inline `import`.
 
 ```py
-imocker.execute(lambda: function_that_calls_inline_import())
+imocker.execute(lambda: function_that_calls_inline_import(x, y, z=4))
 ```
 
 ## Rationale
@@ -183,10 +183,11 @@ imported modules can be mocked again.
 Uses the same logic of `import_module` but receives a list of module names to
 import and returns a list with the imported modules in the same order.
 
-### `execute(function)`
+### `execute(function, *args, **kwargs)`
 
 Executes a function inside a context that returns the mocked modules when they
-are imported, all other imports will work normally.
+are imported, all other imports will work normally. `*args` and `**kwargs` are the
+arguments to pass down to `function`.
 
 This is useful when you are testing code that has `import` statements inside
 a function, and you want to mock those imports.
