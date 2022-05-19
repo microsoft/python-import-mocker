@@ -225,6 +225,28 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
+### Publishing a new version of this Python package
+
+Quick steps to publish a new version of this package:
+
+1. Update the `CHANGELOG.md` file.
+2. Update the version of the package in the file `setup.cfg`.
+3. Build the package locally:
+   1. `py -m pip install --upgrade build`
+   2. `py -m build`
+   3. Make sure that the folder `dist/` only contains the files of the new version.
+4. Push the package to PyPI:
+   1. `py -m pip install --upgrade twine`
+   2. `py -m twine upload dist/*`
+
+*Note: you must be added as an owner or collaborator in PyPI to be able to*
+*publish the package, please ask the maintainers to add you if necessary.*
+
+The detailed package publishing process is described in detail here:
+
+- [Python and PyPI | Microsoft Open Source Docs](https://docs.opensource.microsoft.com/releasing/publish/python/)
+- [Packaging Python Projects](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
+
 ## Trademarks
 
 This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft
